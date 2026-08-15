@@ -1,0 +1,30 @@
+namespace Oni.Objects
+{
+	internal enum PatrolPathPointType
+	{
+		MoveToFlag,
+		Stop,
+		Pause,
+		LookAtFlag,
+		LookAtPoint,
+		MoveAndFaceFlag,
+		Loop,
+		MovementMode,
+		MoveToPoint,
+		LockFacing,
+		MoveThroughFlag,
+		MoveThroughPoint,
+		StopLooking,
+		FreeFacing,
+		GlanceAtFlagFor,
+		MoveNearFlag,
+		LoopFrom,
+		Scan,
+		StopScanning,
+		MoveToFlagLookAndWait,
+		CallScript,
+		ForkScript,
+		IgnorePlayer,
+		FaceToFlagAndFire
+	}
+}
