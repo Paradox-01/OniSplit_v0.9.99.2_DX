@@ -1,0 +1,13 @@
+<Project>
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'OniSplit'">
+	<Compile Remove="obj\**\*.cs" />
+	<Compile Remove="OniAgqgObjExporter\**\*.cs" />
+	<Compile Remove="OniAgqgShadePatcher\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'OniAgqgObjExporter'">
+	<Compile Remove="OniAgqgShadePatcher\**\*.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(MSBuildProjectName)' == 'OniAgqgShadePatcher'">
+	<Compile Remove="OniAgqgObjExporter\**\*.cs" />
+  </ItemGroup>
+</Project>
