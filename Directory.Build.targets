@@ -16,4 +16,8 @@
              Properties="Configuration=$(Configuration)"
              BuildInParallel="true" />
   </Target>
+  <Target Name="DeployDebugExecutables" AfterTargets="Build"
+          Condition="'$(MSBuildProjectName)' == 'OniSplit' And '$(Configuration)' == 'Debug'">
+    <Exec Command="&quot;$(MSBuildThisFileDirectory)CopyDebugNet40Executables.cmd&quot;" />
+  </Target>
 </Project>
