@@ -10,4 +10,10 @@
   <ItemGroup Condition="'$(MSBuildProjectName)' == 'OniAgqgShadePatcher'">
 	<Compile Remove="OniAgqgObjExporter\**\*.cs" />
   </ItemGroup>
+  <Target Name="BuildHelperTools" BeforeTargets="Build" Condition="'$(MSBuildProjectName)' == 'OniSplit'">
+    <MSBuild Projects="OniAgqgObjExporter.csproj;OniAgqgShadePatcher.csproj;OniOnlvAisaLinkPatcher.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)"
+             BuildInParallel="true" />
+  </Target>
 </Project>
