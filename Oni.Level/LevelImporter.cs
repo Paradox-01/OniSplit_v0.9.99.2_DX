@@ -1499,6 +1499,25 @@ namespace Oni.Level
 			}
 		}
 
+		private void ReadAISACharacters(XmlReader xml, string basePath)
+		{
+			if (!xml.IsStartElement("AISACharacters"))
+			{
+				return;
+			}
+			string text = xml.ReadElementContentAsString().Trim();
+			if (text.Length == 0)
+			{
+				return;
+			}
+			string text2 = Path.GetFullPath(Path.Combine(basePath, text));
+			if (!File.Exists(text2))
+			{
+				error.WriteLine("Warning: Could not find AISA file '{0}'", text2);
+			}
+			level.aisaName = Path.GetFileNameWithoutExtension(text);
+		}
+
 		private void ReadTextures(XmlReader xml, string basePath)
 		{
 			if (xml.SkipEmpty())
@@ -1604,6 +1623,7 @@ namespace Oni.Level
 			xml.ReadStartElement("Level");
 			ReadModel(xml, basePath);
 			ReadSky(xml, basePath);
+			ReadAISACharacters(xml, basePath);
 			ReadObjects(xml, basePath);
 			ReadFilms(xml, basePath);
 			ReadCameras(xml, basePath);
